@@ -1,0 +1,76 @@
+/*This program will find the # of days in a month
+ * Created by Kellan Cupid
+ * 9/25/17
+ */
+package Homework3;
+//import classes
+import java.util.Scanner;
+public class Problem3 {
+//initialize variables/fill arrays
+	private String[] months = {
+			"January",
+			"Febuary",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+			"November",
+			"December",};
+	private int[] days = {
+			31,
+			28,
+			31,
+			30,
+			31,
+			30,
+			31,
+			31,
+			30,
+			31,
+			30,
+			31};
+	private int y, numDays;
+	private String x = "";
+	//constructor
+	public Problem3(String month, int year) {
+		x = month;
+		y = year;
+	}
+	//discover if leap year
+	public boolean testLeapYear() {
+		if(!(y % 4 == 0 || (y%100 == 0 && y%400 == 0))) {
+			return false;
+	}			return true;
+	}
+
+	//finds the month and # of days
+	public void findMonth() {
+		for(int i = 0; i < months.length; i++) {
+			if(x.equalsIgnoreCase(months[i].substring(0,3))) {
+				numDays = days[i];
+				if(testLeapYear())
+					numDays = 29;
+				System.out.println("The month of " + months[i] + " has " + numDays + " days");
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		//get input
+		Scanner key = new Scanner(System.in);
+		int year;
+		String month = "";System.out.print("What are the first three letters of the month you are intrested in?");
+		month = key.nextLine();
+		System.out.println("What year is it?");
+		year = key.nextInt();
+		//output
+		Problem3 one = new Problem3(month, year);
+		one.testLeapYear();
+		one.findMonth();
+	}
+
+}

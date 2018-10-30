@@ -1,0 +1,65 @@
+package Homework6;
+/*
+ * This is a program designed to count the occurrences of a inputed numbers
+ * Created by Kellan Cupid
+ * 10/23/17
+ */
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Problem1 {
+	//Will find and print occurrences of each number
+	public void countOccurrances(ArrayList<Integer> in) {
+		ArrayList<Integer> nums = new ArrayList(in.size());
+		int temp = 0;	
+		nums = in;
+		//Sorts ArrayList in ascending order
+		for(int x = 0; x < in.size()-1; x++) {
+			for(int i = 0; i < in.size()-1; i++) {
+			if(nums.get(i) > nums.get(i+1)) {
+				temp = nums.get(i); 
+				nums.set(i, nums.get(i+1));
+				nums.set(i+1, temp);
+			}
+			}
+		}
+		//counts occurrences
+		int[] count = new int[101];
+		for(int i = 0; i < count.length; i++) {
+			for(int x = 0; x < nums.size(); x++) {
+				if(nums.get(x) == i) {
+					count[i] += 1;
+				}
+			}
+		}
+		//prints the results
+		ArrayList<Integer> num = new ArrayList();
+		for(int i = 0; i < count.length; i++) {
+			if(count[i] > 0)
+				num.add(i);
+		}
+		for(int i = 0; i < num.size(); i++) {
+			System.out.print(num.get(i) + " Occurs " + count[num.get(i)] + " time");
+			if(count[num.get(i)] > 1)
+				System.out.print("s");
+			System.out.println();
+			
+		}
+	}
+	public static void main(String[] args) {
+	Problem1 one = new Problem1();
+	//makes ArrayList for user input
+	ArrayList<Integer> num = new ArrayList();
+	//Creates Scanner Object
+	Scanner key = new Scanner(System.in);
+	int y = 0;
+	//ads user input to ArrayList num
+	while(y != -1) {
+		System.out.println("Enter a number between 0 and 100(-1 to stop)");
+		y = key.nextInt();
+		if(y != -1)
+		num.add(y);
+	}//runs the method
+	one.countOccurrances(num);
+	}
+
+}

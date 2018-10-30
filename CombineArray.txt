@@ -1,0 +1,29 @@
+/*
+ * This is a program designed to combine two ArrayLists and return the result without any duplicates
+ * Created by Kellan Cupid
+ * 12/4/17
+ */
+package Homework10;
+import java.util.*;
+public class Problem2 extends CombineLists {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner key = new Scanner(System.in);
+		ArrayList<Integer> one = new ArrayList<Integer>();
+		ArrayList<Integer> two = new ArrayList<Integer>();
+		for(int i = 0; i < 5; i++) {
+			System.out.println("Enter a value to be entered into the first list. ");
+			one.add(key.nextInt());
+		}
+		for(int i = 0; i < 5; i++) {
+			System.out.println("Enter a value to be entered into the second list. ");
+			two.add(key.nextInt());
+		}
+		ArrayList<Integer> list = union(one,two);
+		for(int i = 0; i < list.size(); i++) {
+			System.out.print(list.get(i) + " ");
+		}
+	}
+
+}

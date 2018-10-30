@@ -1,0 +1,44 @@
+package Homework5;
+/*This is a program designed to find the area of a triangle if its valid
+ * By Kellan Cupid
+ * 10/11/17
+ */
+//import classes
+import java.util.Scanner;
+public class Problem2 {
+	public Problem2() {
+		
+	}
+	//create a method to test if triangle is valid
+	public static boolean isValid(double s1, double s2, double s3) {
+		double a = s1 + s2;
+		double b = s2 + s3;
+		double c = s3 + s1;
+		if(s1 > b || s2 > c || s3 > a)
+			return false;
+		return true;
+	}
+	//finds area of the triangle
+	public static double area(double a, double b, double c) {
+		double p = (a+b+c)/2;
+		return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+	}
+	public static void main(String[] args) {
+		//Create Scanner Object
+		Scanner key = new Scanner(System.in);
+		//Get user input
+		System.out.println("Enter the length of a side");
+		double a = key.nextDouble();
+		System.out.println("Enter the length of another side");
+		double b = key.nextDouble();
+		System.out.println("Enter the length of the last side");
+		double c = key.nextDouble();
+		//display
+		Problem2 one = new Problem2();
+		if(one.isValid(a, b, c)) 
+		System.out.println("The area of the triangle is " + one.area(a, b, c));
+		else
+			System.out.println("The triangle is not valid");
+	}
+
+}

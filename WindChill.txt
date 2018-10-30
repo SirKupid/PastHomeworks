@@ -1,0 +1,59 @@
+package Homework2;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+/*This is a program that will determine the wind chill based off of wind speed and temperature(f)
+ * Created by Kellan Cupid
+ * 09/18/17
+ */
+public class Problem2 {
+//variables for temperature and wind speed
+private double t, ws = 0;
+//constructor
+public Problem2(double temp, double wind) {
+	t = temp;
+	ws = wind;
+}
+//will compute the wind chill
+public void compute() {
+	DecimalFormat fun = new DecimalFormat("0.00");
+
+	double var = 0.16;
+	double wc = 35.74 + 0.6215*t - 35.75*(Math.pow(ws, var)) + 0.4275*t*(Math.pow(ws,var));
+	System.out.println(fun.format(wc) + " degrees");
+	
+}
+//Will get and test the temperature value
+public static double testTemp() {
+	Scanner key = new Scanner(System.in);
+	String prompt =  "Enter a temperature(farenheit) between -58 and 41 degrees ";
+	System.out.println(prompt);
+	double temp = key.nextDouble();
+	while(temp < -58 || temp > 41) {
+			System.out.println("The value you've enterd is out of range");
+			System.out.println(prompt);
+			temp = key.nextDouble();
+		}
+	return temp;
+}
+//Will get and test wind speed
+public static double testWind() {
+	Scanner key = new Scanner(System.in);
+	System.out.print("What is the wind speed(mph)? ");
+		double wind = key.nextDouble();
+		while(wind < 0) {
+			System.out.println("Wind cannot move less than 0 mph");
+			System.out.print("What is the wind speed(mph)? ");
+			wind = key.nextDouble();
+		}
+		return wind;
+}
+
+	public static void main(String[] args) {
+		//display
+		Problem2 one = new Problem2(testTemp(), testWind());
+		System.out.print("Based off of the information entered\n"
+						 + "It will feel like ");
+		one.compute();
+	}
+
+}

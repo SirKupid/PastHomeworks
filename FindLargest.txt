@@ -1,0 +1,44 @@
+package Homework7;
+/*
+ * This is a program designed to find the largest element in a two-dimensional array
+ * Created by Kellan Cupid
+ * 10/30/17
+ */
+import java.util.Scanner;
+public class Problem1 {
+	//will find the largest value
+	public static double locateLargest(double[][] a) {
+		double max = a[0][0];
+		for(int i = 0; i < a.length; i++) {
+			for(int x = 0; x < a[0].length; x++) {
+				if(a[i][x] > max)
+					max = a[i][x];
+			}
+		}
+		return max;
+	}
+	
+	public static void main(String[] args) {
+		Scanner key = new Scanner(System.in);
+		//find size of array
+		System.out.println("How many rows of data will there be?");
+		int row = key.nextInt();
+		System.out.println("How many values are in each row");
+		int col = key.nextInt();
+		int count = 0;
+		double val = 0;
+		//creates array
+		double[][] num = new double[row][col];
+		//gets user input
+		for(int i = 0; i < row; i++) {
+			for(int x = 0; x < col; x++) {
+				System.out.println("Enter the value in row #" + (i+1) + ", column #" + (x+1));
+				val = key.nextDouble();
+				num[i][x] = val;
+			}
+		}
+		//calls locateLargest() method
+		System.out.println("The largest value in that data set is " + locateLargest(num));
+	}
+
+}

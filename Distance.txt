@@ -1,0 +1,42 @@
+/*This is a program designed to calculate the distance between two points
+ * Created by Kellan Cupid
+ * 09/18/17
+ */
+package Homework2;
+//import classes
+import java.util.Scanner;
+public class Problem1 {
+private double x1,x2,y1,y2 = 0;
+public Problem1(double p1, double p2, double p3, double p4) {
+	x1 = p1;
+	y1 = p2;
+	x2 = p3;
+	y2 = p4;
+	
+}
+//calculates distance
+public void distance() {
+	double ans = 0;
+	double x = Math.pow((x2-x1), 2);
+	double y = Math.pow((y2-y1), 2);
+	ans = Math.sqrt(x+y);
+	System.out.println(ans);
+}
+	public static void main(String[] args) {
+	//create scanner object
+	Scanner key = new Scanner(System.in);
+	//get user input
+	System.out.println("What is the value of the x in the first point?  ");
+	double one = key.nextDouble();
+	System.out.println("What is the value of the y in the first point?  ");
+	double two = key.nextDouble();
+	System.out.println("What is the value of the x in the second point?  ");
+	double three = key.nextDouble();
+	System.out.println("What is the value of the y in the second point?  ");
+	double four = key.nextDouble();
+	Problem1 cat = new Problem1(one, two, three, four);
+	//display
+	cat.distance();
+	}
+
+}

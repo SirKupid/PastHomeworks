@@ -1,0 +1,29 @@
+/*
+ * This is a program designed to remove any duplicate elements from an ArrayList
+ * Created by Kellan Cupid
+ * 12/4/17
+ */
+package Homework10;
+import java.util.*;
+ class Problem1 extends RemoveDuplicates{
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner key = new Scanner(System.in);
+		ArrayList<Integer> num = new ArrayList<Integer>();
+		//initializes list
+		for(int i = 0; i < 5; i++) {
+			System.out.println("Enter any integer");		
+			int in = key.nextInt();
+			num.add(i, in);
+		}
+		//calls removeDuplicates()
+		removeDuplicates(num);
+		//prints list with distinct values
+		for(int i = 0; i < num.size(); i++) {
+		System.out.print(num.get(i) + " ");
+		
+		}
+	}
+
+}

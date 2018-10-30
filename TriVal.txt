@@ -1,0 +1,70 @@
+/*This program will test the validity of a triangle
+ * Created by Kellan Cupid
+ * 09/25/17
+ */
+package Homework3;
+//import classes
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+public class Problem2 {
+//Initialize variables
+private double x1, x2, x3, y1, y2, y3 = 0;
+//Create Constructor
+public Problem2(double p1, double p2, double p3, double p4, double p5, double p6) {
+	x1 = p1;
+	x2=p2;
+	x3=p3;
+	y1=p4;
+	y2=p5;
+	y3=p6;
+}
+//Object for calculating side length
+public static double distance(double xone, double xtwo, double yone, double ytwo) {
+	double x = Math.pow((xtwo - xone), 2);
+	double y = Math.pow((ytwo - yone), 2);
+	return Math.sqrt(x+y);
+}
+//Finds length of side 1
+public double getSide1() {
+	return distance(x1, x2, y1, y2);
+}
+//Finds length of side 2
+public double getSide2() {
+	return distance(x2, x3, y2, y3);
+}
+//Finds length of side 3
+public double getSide3() {
+	return distance(x3, x1, y3, y1);
+}
+//test validity
+public void testValidity() {
+	double one = getSide1() + getSide2();
+	double two = getSide3() + getSide2();
+	double three = getSide1() + getSide3();
+	if(!(one > getSide3() && two > getSide1() && three > getSide2()))
+		System.out.println("The triangle is not valid");
+	System.out.println("The triangle is valid");
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String input ="";
+		double x1, x2, x3, y1, y2, y3 =0;
+		//get user input
+		input = JOptionPane.showInputDialog("What is the x of the point one?",1);
+		x1 = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the x of the point two?",1);
+		x2 = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the x of the point three?",1);
+		x3 = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the y of the point one?",1);
+		y1 = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the y of the point two?",1);
+		y2 = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the y of the point three?",1);
+		y3 = Double.parseDouble(input);
+		//enter input into constructor
+		Problem2 one = new Problem2(x1,x2,x3,y1,y2,y3);
+		one.testValidity();
+		System.exit(0);
+	}
+}

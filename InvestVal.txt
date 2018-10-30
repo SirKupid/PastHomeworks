@@ -1,0 +1,42 @@
+//This program will calculate the future value of an investment
+package Homework2;
+//import classes
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+public class Problem4 {
+	//initialize variables
+	double i, r = 0;
+	int y = 0;
+	//constructor
+	public Problem4(double a, double b, int c) {	
+		i = a;
+		r = b; 
+		y = c;
+	}
+	//calculates future investment value
+	public double calculateFutureInvestment() {
+		return i * Math.pow(1 + (r/1200), y*12);
+	}
+	public static void main(String[] args) {
+		//initialize variables
+		String input = "";
+		double i, r = 0;
+		int y = 0;
+		//get user input
+		input = JOptionPane.showInputDialog("What was the initial investment amount?");
+		i = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("What is the annual rate of growth for the investment?");
+		r = Double.parseDouble(input);
+		input = JOptionPane.showInputDialog("How many years would you like to calculate");
+		y = Integer.parseInt(input);
+		//create decimal format object
+		DecimalFormat fun = new DecimalFormat("$#,###.##");
+		//build constructor
+		Problem4 one = new Problem4(i,r,y);
+		//display message
+		JOptionPane.showMessageDialog(null, "The investment will have a value of " 
+										+ fun.format(one.calculateFutureInvestment())
+										+ " after " + y + " years");	
+	}
+
+}

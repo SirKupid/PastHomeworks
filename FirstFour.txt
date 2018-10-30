@@ -1,0 +1,35 @@
+package Homework4;
+/*
+ * This is a program designed to find the first four perfect numbers
+ * Created by Kellan Cupid
+ * 10/2/17
+ */
+
+public class Problem3 {
+	//build constructor
+	public Problem3() {
+		
+	}
+	//find perfect numbers
+	public void findPerfectNumbers() {
+		int sum = 0;
+		for(int i = 1; i <= 10000; i++) {
+			sum = i-i;
+			for(int x = 1; x<i; x++) {
+				if(i%x == 0)
+				sum += x;
+				
+			}
+			if(sum == i)
+				System.out.println(i);
+		}
+	}
+	public static void main(String[] args) {
+		//create object
+		Problem3 one = new Problem3();
+		System.out.println("The first four perfect numbers under 10,000 are:");
+		one.findPerfectNumbers();
+
+	}
+
+}

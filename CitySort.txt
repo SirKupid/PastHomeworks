@@ -1,0 +1,50 @@
+package Homework3;
+/*This program will sort three cities alphabetically
+ * Created by Kellan Cupid
+ * 09/25/17
+ */
+//import scanner class
+import java.util.Scanner;
+public class Problem4 {
+	//initialize variables
+	private String one, two, three="";
+	//build constructor
+	public Problem4(String x, String y, String z) {
+		one = x; 
+		two = y;
+		three = z;
+	}
+	//orders the cities and prints them
+	public void sort() {
+		String[] cities = new String[]{one, two ,three};
+		String temp = "";
+		for(int i = 0; i < cities.length-1; i++) {
+			for(int x = cities.length-1; x > 0; x--) {
+			if(cities[i].compareTo(cities[x])>1) {
+				temp = cities[i];
+				cities[i] = cities[x];
+				cities[x] = temp;
+			}
+			}
+		}
+		for(int i = 0; i < cities.length; i++) {
+			System.out.println(cities[i]);
+		}
+	}
+	public static void main(String[] args) {
+		// Create Scanner object
+		Scanner key = new Scanner(System.in);
+		//get user input
+		System.out.println("Please enter a name of a city");
+		String one = key.nextLine();
+		System.out.println("Please enter a name of another city");
+		String two = key.nextLine();
+		System.out.println("Please enter the name of another city");
+		String three = key.nextLine();
+		//creates object
+		Problem4 fun = new Problem4(one,two,three);
+		//perform sorting and print
+		fun.sort();
+	}
+
+}

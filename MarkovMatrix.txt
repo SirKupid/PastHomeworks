@@ -1,0 +1,44 @@
+package Homework7;
+/*
+ * This program will test whether a 2D array is a positive Markov Matrix
+ * Created by Kellan Cupid
+ * 10/30/17
+ */
+import java.util.Scanner;
+public class Problem3 {
+	//tests matrix
+	public static boolean isMarkovMatrix(double[][] in) {
+		double sum = 0; 
+		for(int i = 0; i < in[0].length; i++) {
+			sum = 0;
+			for(int x = 0; x < in.length; x++) {
+			sum += in[x][i];
+			if(in[x][i] < 0)
+				return false;
+			}
+			if(sum != 1)
+				return false;
+		}
+		return true;
+	}
+	public static void main(String[] args) {
+		Scanner key = new Scanner(System.in);
+		double[][] arr = new double[3][3];
+		//get input
+		for(int i = 0 ; i < arr.length; i++) {
+			for(int x = 0; x < arr[0].length; x++) {
+				System.out.println("Enter a number");
+				double num = key.nextDouble();
+				arr[i][x] = num;
+			}
+		}
+		//results
+		if(isMarkovMatrix(arr)) {
+			System.out.println("That is a positive Matrov Matrix");
+		}
+		else {
+			System.out.println("That is not a positive Matrov Matrix");
+		}
+	}
+
+}

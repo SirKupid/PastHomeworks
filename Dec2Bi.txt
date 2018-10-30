@@ -1,0 +1,36 @@
+package Homework4;
+/*
+ * This program is designed to convert decimal numbers into binary
+ * By Kellan Cupid
+ * 10/2/17
+ */
+//import classes
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Problem4 {
+	
+	public static void main(String[] args) {
+		//Create Scanner object
+		Scanner key = new Scanner(System.in);
+		//initialize variables
+		System.out.println("Enter a number in Base 10 format");
+		int num = key.nextInt();
+		int ex = num;
+		int count = 0;
+		ArrayList<Integer> bin = new ArrayList();
+		int rem = 0;
+		//while loop that converts number type
+		while(num > 0) {
+			rem = num % 2;
+			bin.add(count, rem);
+			num = num / 2;
+			count++;
+		}
+		//displays number
+		System.out.print(ex + " in binary form is: ");
+		for(int i = bin.size()-1; i > 0; i--) {
+			System.out.print(bin.get(i));
+		}
+	}
+
+}

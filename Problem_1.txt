@@ -1,0 +1,54 @@
+/*This is a program designed to print song lyrics
+ * Bohemian Rhapsody - Queen
+ * By Kellan Cupid
+ * 09/18/17
+ */
+public class Homework1 {
+	//A constructor for the program
+	public Homework1() {	
+	}
+	//Creates an object that prints the Intro
+	public String intro() {
+		return "Is this the real life? Is this just fantasy?\n" + 
+				"Caught in a landslide, no escape from reality\n" + 
+				"Open your eyes, look up to the skies and see\n" + 
+				"I'm just a poor boy, I need no sympathy\n" + 
+				"Because I'm easy come, easy go, little high, little low\n" + 
+				"Any way the wind blows doesn't really matter to me, to me\n";
+	}
+	//Creates object for Verse1
+	public String verse1() {
+		return "Mama, just killed a man\r\n" + 
+				"Put a gun against his head, pulled my trigger, now he's dead\r\n" + 
+				"Mama, life had just begun\r\n" + 
+				"But now I've gone and thrown it all away\r\n" + 
+				"Mama, ooh, didn't mean to make you cry\r\n" + 
+				"If I'm not back again this time tomorrow\r\n" + 
+				"Carry on, carry on as if nothing really matters\n";
+	}
+	//Creates object for Verse2
+	public String verse2() {
+		return "Too late, my time has come\r\n" + 
+				"Sends shivers down my spine, body's aching all the time\r\n" + 
+				"Goodbye, everybody, I've got to go\r\n" + 
+				"Gotta leave you all behind and face the truth\r\n" + 
+				"Mama, ooh, (any way the wind blows)\r\n" + 
+				"I don't want to die\r\n" + 
+				"I sometimes wish I'd never been born at all\n";
+	}
+	//To String method to organize the verses
+	public String toString() {
+		return "Intro: \n" + 
+				intro() +
+				"\nVerse1\n" +
+				verse1() +
+				"\nVerse2\n" + 
+				verse2();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Homework1 one = new Homework1();
+		System.out.print(one.toString());
+	}
+
+}

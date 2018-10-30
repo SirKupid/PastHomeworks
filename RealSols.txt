@@ -1,0 +1,46 @@
+//This program will find the # of real solutions an equation has
+package Homework3;
+//import classes
+import javax.swing.JOptionPane;
+public class Problem1 {
+	//initialize variables
+	private double a, b, c = 0; 
+	//constructor
+	public Problem1(double one, double two, double three) {
+		a = one; 
+		b = two; 
+		c = three;
+	}
+	//calculates the discriminant 
+	public double getDiscriminant() {
+		return Math.sqrt(Math.pow(b, 2) - (4*a*c));
+	}
+	//finds # of roots in equation
+	public void findRoots() {
+		if(getDiscriminant() > 0) {
+			System.out.println("The equation has two real roots.");
+		}
+		else if(getDiscriminant() == 0) {
+			System.out.println("The equation has one real root.");
+		}
+		else {
+			System.out.println("The equation has no real roots.");
+		}
+	}
+
+	public static void main(String[] args) {
+		//get user input
+		String in = "";
+		in = JOptionPane.showInputDialog("What is the value of a in the equation?");
+		double one = Double.parseDouble(in);
+		in = JOptionPane.showInputDialog("What is the value of b in the equation?");
+		double two = Double.parseDouble(in);
+		in = JOptionPane.showInputDialog("What is the value of c in the equation?");
+		double three = Double.parseDouble(in);
+		Problem1 fun = new Problem1(one, two, three);
+		//output
+		fun.findRoots();
+		System.exit(0);
+	}
+
+}

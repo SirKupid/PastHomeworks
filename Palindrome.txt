@@ -1,0 +1,48 @@
+package Homework5;
+/*This is a program designed to check whether or not a number is a palindrome
+ * Created by Kellan Cupid
+ * 10/11/17
+ */
+//import classes
+import java.util.Scanner;
+public class Problem1 {
+	//create constructor
+	public Problem1() {
+		
+	}
+	public static int reverse(int in) {
+		//assigns input to the value x
+		//initialize variables
+		int x = in;
+		int revnum = 0;
+		//filps number
+		while(x != 0) {
+			revnum *= 10;
+			revnum +=  (x%10);
+			x /= 10;
+		}
+		//returns reversed number
+		return revnum;
+	}
+	public static boolean isPalindrome(int in) {
+		//if statements tests if reversed number equals inputted number
+		if(in == reverse(in))
+			return true;
+		return false;
+	}
+	public static void main(String[] args) {
+		//Create Scanner Object
+		Scanner key = new Scanner(System.in);
+		//Get User input
+		System.out.println("Enter a number");
+		int x = key.nextInt();
+		//display
+		Problem1 one = new Problem1(); 
+		if(!(isPalindrome(x))) 
+		System.out.println("The number entered is not a Palindrome");
+		else
+		System.out.println("The number entered is a Palindrome");
+
+	}
+
+}
